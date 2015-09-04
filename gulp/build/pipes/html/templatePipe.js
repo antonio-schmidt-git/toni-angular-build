@@ -1,10 +1,7 @@
-var gulp = require('gulp');
-var replace = require('gulp-replace');
-var config = require('../../../config');
-var lazyPipe = require('lazypipe');
-var gulpInject = require('gulp-inject');
-var wrapper = require('gulp-wrapper');
-var rename = require('gulp-rename');
+var gulp = require('gulp'),
+    plugins = require('gulp-load-plugins')(),
+    lazyPipe = require('lazypipe'),
+    config = require('../../../config');
 
 function _transformTemplatePath(path) {
     var isSharedPath = path.dirname === '.';
@@ -16,8 +13,8 @@ function _transformTemplatePath(path) {
 
 function _templateSourcePipe() {
     return gulp.src(config.templateFiles)
-        .pipe(rename(_transformTemplatePath))
-        .pipe(wrapper({
+        .pipe(plugins.rename(_transformTemplatePath))
+        .pipe(plugins.wrapper({
             header: '<script type="text/ng-template" id="${filename}">\n',
             footer: '</script>\n'
         }));
@@ -45,7 +42,7 @@ function _templatePipe() {
     };
 
     return lazyPipe()
-        .pipe(gulpInject, _templateSourcePipe(), injectOptions);
+        .pipe(plugins.inject, _templateSourcePipe(), injectOptions);
 }
 
 module.exports = _templatePipe();

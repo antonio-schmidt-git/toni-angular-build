@@ -1,7 +1,6 @@
 var gulp = require('gulp');
+require('../../build/tasks/re-build');
 
-//gulp.task('_htmlTask', getPipe('build/pipes/html/htmlPipe'));
-
-var _dev = gulp.task('_dev');
+var _dev = gulp.task('_dev', ['_re-build']);
 
 module.exports = _dev;

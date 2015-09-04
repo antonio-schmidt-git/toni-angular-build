@@ -1,14 +1,15 @@
-var gulp = require('gulp');
-var gulpIf = require('gulp-if');
-var config = require('../../../config');
-var htmlOptimizationPipe = require('./htmlOptimizationPipe');
-var templatePipe = require('./templatePipe');
+var requireDir = require('require-dir'),
+    gulp = require('gulp'),
+    plugins = require('gulp-load-plugins')(),
+    lazyPipe = require('lazypipe'),
+    config = require('../../../config'),
+    htmlPipes = requireDir('./');
 
 function _viewPipe() {
     return gulp
         .src(config.viewFiles)
-        .pipe(templatePipe())
-        .pipe(gulpIf(config.optimize, htmlOptimizationPipe()))
+        .pipe(htmlPipes.templatePipe())
+        .pipe(plugins.if(config.optimize, htmlPipes.htmlOptimizationPipe()))
         .pipe(gulp.dest('dist'));
 }
 

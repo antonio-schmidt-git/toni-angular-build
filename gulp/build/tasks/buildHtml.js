@@ -1,6 +1,5 @@
-var gulp = require('gulp');
-var viewPipe = require('../pipes/html/viewPipe');
-var templatePipe = require('../pipes/html/templatePipe');
+var gulp = require('gulp'),
+    viewPipe = require('../pipes/html/viewPipe');
 
 
 var _buildHtml = gulp.task('_buildHtml', function () {

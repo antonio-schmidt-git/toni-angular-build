@@ -1,7 +1,7 @@
-var gulp = require('gulp');
-var config = require('../../../config');
-var lazyPipe = require('lazypipe');
-var htmlMin = require('gulp-htmlmin');
+var gulp = require('gulp'),
+    plugins = require('gulp-load-plugins')(),
+    lazyPipe = require('lazypipe'),
+    config = require('../../../config');
 
 function _htmlOptimizationPipe() {
     var htmlOptimizationOptions = {
@@ -21,7 +21,7 @@ function _htmlOptimizationPipe() {
     };
 
     return lazyPipe()
-        .pipe(htmlMin, htmlOptimizationOptions);
+        .pipe(plugins.htmlmin, htmlOptimizationOptions);
 }
 
 module.exports = _htmlOptimizationPipe();
