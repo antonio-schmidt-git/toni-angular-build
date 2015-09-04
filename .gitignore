@@ -1,0 +1,10 @@
+.idea/workspace.xml
+.idea/jsLibraryMappings.xml
+.idea/vinopoly.iml
+
+node_modules/*
+src/packages/*
+
+dist/*
+
+npm-debug.log

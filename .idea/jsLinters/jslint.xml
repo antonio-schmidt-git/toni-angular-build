@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JSLintConfiguration" json="true">
+    <option browser="true" />
+    <option continue="true" />
+    <option indent="4" />
+    <option maxerr="500" />
+    <option maxlen="500" />
+    <option nomen="true" />
+    <option plusplus="true" />
+    <option predef="angular, describe, beforeEach, afterEach, module, expect, it, inject, require, _, console" />
+    <option regexp="true" />
+    <option sloppy="true" />
+    <option unparam="true" />
+  </component>
+</project>
