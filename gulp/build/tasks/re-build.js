@@ -1,10 +1,14 @@
-var gulp = require('gulp');
+var clean = require('./clean');
+var build = require('./build');
 
-require('./clean');
-require('./build');
 
-var _reBuild = gulp.task('_re-build', ['_clean'], function(){
-    return gulp.start('_build');
-});
+function _reBuild(gulp, config, plugins) {
+    clean(gulp);
+    build(gulp, config, plugins);
+
+    return gulp.task('_re-build', ['_clean'], function () {
+        return gulp.start('_build');
+    });
+}
 
 module.exports = _reBuild;

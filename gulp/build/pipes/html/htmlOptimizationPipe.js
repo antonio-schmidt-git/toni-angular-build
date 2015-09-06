@@ -1,9 +1,6 @@
-var gulp = require('gulp'),
-    plugins = require('gulp-load-plugins')(),
-    lazyPipe = require('lazypipe'),
-    config = require('../../../config');
+var lazyPipe = require('lazypipe');
 
-function _htmlOptimizationPipe() {
+function _htmlOptimizationPipe(plugins) {
     var htmlOptimizationOptions = {
         removeComments: true,
         removeCommentsFromCDATA: true,
@@ -24,4 +21,4 @@ function _htmlOptimizationPipe() {
         .pipe(plugins.htmlmin, htmlOptimizationOptions);
 }
 
-module.exports = _htmlOptimizationPipe();
+module.exports = _htmlOptimizationPipe;

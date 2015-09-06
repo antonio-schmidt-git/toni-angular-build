@@ -1,6 +1,9 @@
-var gulp = require('gulp');
-require('./buildHtml');
+var buildHtml = require('./buildHtml');
 
-var _build = gulp.task('_build', ['_buildHtml']);
+function _build(gulp, config, plugins) {
+    buildHtml(gulp, config, plugins);
+
+    return gulp.task('_build', ['_buildHtml']);
+}
 
 module.exports = _build;
