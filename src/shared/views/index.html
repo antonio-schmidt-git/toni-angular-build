@@ -1,19 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="app">
 <head>
     <meta charset="UTF-8">
     <title>Toni angular build</title>
 
+    <!-- build:css styles/bundle-thirdparty.css -->
     <link rel="stylesheet" type="text/css" href="../styles/bootstrap-custom.scss" />
+    <!-- endbuild -->
+
+    <!-- build:css styles/bundle-shared.css -->
+    <link rel="stylesheet" type="text/css" href="../styles/main.scss" />
+    <!-- endbuild -->
 
 </head>
-<body>
+<body ng-controller="mainController as main" ng-cloak>
 
-    <h1>Toni angular build</h1>
+    <div id="navBar">
+        <span>{{ main.getNavTitle() }}</span>
+    </div>
 
     <!-- build:js scripts/bundle-thirdparty.js -->
     <script type="text/javascript" src="../../packages/angular/angular.js"></script>
     <script type="text/javascript" src="../../packages/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js scripts/bundle-shared.js -->
+    <script type="text/javascript" src="../scripts/app.js"></script>
+    <script type="text/javascript" src="../scripts/infrastructure/shared-infra-service-a.js"></script>
+    <script type="text/javascript" src="../scripts/infrastructure/shared-infra-service-b.js"></script>
+    <script type="text/javascript" src="../scripts/data/shared-data-service-a.js"></script>
+    <script type="text/javascript" src="../scripts/data/shared-data-service-b.js"></script>
+    <script type="text/javascript" src="../scripts/layout/mainController.js"></script>
     <!-- endbuild -->
 
     <!-- inject:html -->
