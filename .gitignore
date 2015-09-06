@@ -1,6 +1,6 @@
 .idea/workspace.xml
 .idea/jsLibraryMappings.xml
-.idea/vinopoly.iml
+.idea/toni-angular-build.iml
 
 node_modules/*
 src/packages/*

@@ -1,7 +1,7 @@
 {
-  "name": "vinopoly",
+  "name": "toni-angular-build",
   "version": "0.1.0",
-  "description": "vinopoly winery mrp",
+  "description": "toni angular build",
   "main": "src/shared/views/index.html",
   "dependencies": {},
   "devDependencies": {
@@ -28,17 +28,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/antonio-schmidt-git/vinopoly.git"
+    "url": "git+https://github.com/antonio-schmidt-git/toni-angular-build.git"
   },
   "keywords": [
-    "vinopoly",
-    "winery",
-    "mrp"
+    "toni",
+    "angular",
+    "build"
   ],
   "author": "Antonio Schmidt",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/antonio-schmidt-git/vinopoly/issues"
+    "url": "https://github.com/antonio-schmidt-git/toni-angular-build/issues"
   },
-  "homepage": "https://github.com/antonio-schmidt-git/vinopoly#readme"
+  "homepage": "https://github.com/antonio-schmidt-git/toni-angular-build#readme"
 }

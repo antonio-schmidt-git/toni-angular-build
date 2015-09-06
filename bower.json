@@ -1,16 +1,16 @@
 {
-  "name": "vinopoly",
+  "name": "toni-angular-build",
   "version": "0.1.0",
-  "description": "vinopoly winery mrp",
+  "description": "toni angular build",
   "moduleType": [
     "es6",
     "globals",
     "node"
   ],
   "keywords": [
-    "vinopoly",
-    "winery",
-    "mrp"
+    "toni",
+    "angular",
+    "build"
   ],
   "authors": [
     "Antonio Schmidt"
