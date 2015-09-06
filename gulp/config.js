@@ -10,7 +10,7 @@ function _config(args) {
         subFolders = '/**/',
         htmlFiles = '*.html';
 
-    config.optimize = args.opt;
+    config.optimize = args.optimize;
     config.distPath = 'dist';
 
     /* html */

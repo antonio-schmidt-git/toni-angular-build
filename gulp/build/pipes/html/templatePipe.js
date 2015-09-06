@@ -1,4 +1,5 @@
 var lazyPipe = require('lazypipe');
+var htmlOptimizationPipe = require('./htmlOptimizationPipe')
 
 function _transformTemplatePath(config) {
     return function (path) {
@@ -13,9 +14,10 @@ function _transformTemplatePath(config) {
 function _templateSourcePipe(gulp, config, plugins) {
     return gulp.src(config.templateFiles)
         .pipe(plugins.rename(_transformTemplatePath(config)))
+        .pipe(plugins.if(config.optimize, htmlOptimizationPipe(plugins)()))
         .pipe(plugins.wrapper({
-            header: '<script type="text/ng-template" id="${filename}">\n',
-            footer: '</script>\n'
+            header: '<script type="text/ng-template" id="${filename}">',
+            footer: '</script>'
         }));
 
 }
