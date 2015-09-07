@@ -1,7 +1,24 @@
-<div>
-    HELLO MODULE-B!
+<!-- build:css(src/components/module-b/styles) module-b/styles/bundle-module-b.css -->
+<link rel="stylesheet" type="text/css" href="../styles/module-b.scss" />
+<!-- endbuild -->
+
+<div ng-controller="moduleBControllerA as moduleBControllerA">
+    {{ moduleBControllerA.text }}
+</div>
+
+<div ng-controller="moduleBControllerB as moduleBControllerB">
+    {{ moduleBControllerB.text }}
 </div>
 
 <!-- inject:html -->
 <!-- contents of html partials will be injected here -->
 <!-- endinject -->
+
+
+<!-- build:js(src/components/module-b/scripts) module-b/scripts/bundle-module-b.js -->
+<script type="text/javascript" src="../scripts/module-b.js"></script>
+<script type="text/javascript" src="../scripts/services/module-b-service-a.js"></script>
+<script type="text/javascript" src="../scripts/services/module-b-service-b.js"></script>
+<script type="text/javascript" src="../scripts/controllers/module-b-controller-a.js"></script>
+<script type="text/javascript" src="../scripts/controllers/module-b-controller-b.js"></script>
+<!-- endbuild -->
