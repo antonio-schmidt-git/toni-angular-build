@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="requireDir" type="javaScript">
+    <properties>
+      <option name="frameworkName" value="node_modules" />
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/node_modules/require-dir" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/node_modules/require-dir" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>

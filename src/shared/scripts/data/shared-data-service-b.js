@@ -1,4 +1,4 @@
-angular.module('app').service('sharedDataServiceB', function () {
+angular.module('app').service('sharedDataServiceB', function (sharedInfraServiceA, sharedInfraServiceB) {
     var self = angular.extend(this, {
         sharedDataServiceBObj: {
             isSet: false
@@ -6,7 +6,7 @@ angular.module('app').service('sharedDataServiceB', function () {
     });
 
     self.sharedInfraServiceBFunc = function () {
-        self.sharedDataServiceBObj.isSet = true;
+        self.sharedDataServiceBObj.isSet = sharedInfraServiceA.isSet || sharedInfraServiceB.isSet;
     };
 
     return self;

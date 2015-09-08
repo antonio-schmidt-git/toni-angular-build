@@ -1,9 +1,9 @@
-var buildHtml = require('./buildHtml');
+var buildPipe = require('../pipes/buildPipe');
 
 function _build(gulp, config, plugins) {
-    buildHtml(gulp, config, plugins);
-
-    return gulp.task('_build', ['_buildHtml']);
+    return gulp.task('_build', function () {
+        return buildPipe(gulp, config, plugins);
+    });
 }
 
 module.exports = _build;
