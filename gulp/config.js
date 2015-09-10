@@ -8,12 +8,20 @@ function _config(args) {
         viewsFolder = 'views',
         templatesFolder = 'templates',
         subFolders = '/**/',
-        htmlFiles = '*.html';
+        htmlFiles = '*.html',
+        jsFiles = '*.js',
+        cssFiles = '*.css',
+        thirdPartyFiles = '*thirdparty*';
 
     config.optimize = args.optimize;
     config.distPath = 'dist';
 
-    /* html */
+    /* build common */
+    config.htmlFiles = path.join('**/', htmlFiles);
+    config.jsFiles = path.join('**/', jsFiles);
+    config.cssFiles = path.join('**/', cssFiles);
+
+    /* html build */
     config.templatesFolder = templatesFolder;
     config.viewFiles = [
         path.join(srcPath, sharedFolder, viewsFolder, subFolders, htmlFiles),
@@ -32,6 +40,9 @@ function _config(args) {
             .replace(/.*src\\components\\/, '')
             .replace(/\\views.*/, '');
     };
+
+    /* js build */
+    config.notThirdPartyJsFiles = '!**/' + thirdPartyFiles + '.js';
 
     console.log('');
     console.log('***   CONFIG BEGIN ***');

@@ -1,13 +1,14 @@
-angular.module('app').service('sharedDataServiceB', function (sharedInfraServiceA, sharedInfraServiceB) {
-    var self = angular.extend(this, {
-        sharedDataServiceBObj: {
-            isSet: false
+export default class SharedDataServiceB {
+
+    constructor(sharedInfraServiceA, sharedInfraServiceB) {
+        this.sharedDataServiceBObj = {
+            isSet: sharedInfraServiceA.objA.isSet && sharedInfraServiceB.objB.isSet
         }
-    });
+    }
 
-    self.sharedInfraServiceBFunc = function () {
-        self.sharedDataServiceBObj.isSet = sharedInfraServiceA.isSet || sharedInfraServiceB.isSet;
+    sharedDataServiceBFunc () {
+        self.sharedDataServiceAObj.isSet = sharedInfraServiceA.objA.isSet || sharedInfraServiceB.objB.isSet;
     };
+}
 
-    return self;
-});
+angular.module('app').service('sharedDataServiceB', SharedDataServiceB);

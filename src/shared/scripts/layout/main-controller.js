@@ -1,13 +1,14 @@
-angular.module('app').controller('mainController', function (sharedDataServiceA, sharedDataServiceB) {
-    var self = angular.extend(this, {
-        navTitle: 'Toni angular build',
-        sharedObjA: sharedDataServiceA.sharedDataServiceAObj,
-        sharedObjB: sharedDataServiceB.sharedDataServiceBObj
-    });
+export default class MainController {
 
-    self.getNavTitle = function () {
-        return self.navTitle + ' ' + self.sharedObjA.isSet + ' ' + self.sharedObjB.isSet;
-    };
+    constructor(sharedDataServiceA, sharedDataServiceB) {
+        this.navTitle = 'Toni angular build';
+        this.sharedObjA = sharedDataServiceA.sharedDataServiceAObj;
+        this.sharedObjB = sharedDataServiceB.sharedDataServiceBObj;
+    }
 
-    return self;
-});
+    getNavTitle () {
+        return this.navTitle + ' ' + this.sharedObjA.isSet + ' ' + this.sharedObjB.isSet;
+    }
+}
+
+angular.module('app').controller('mainController', MainController);

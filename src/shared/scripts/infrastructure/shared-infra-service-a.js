@@ -1,13 +1,14 @@
-angular.module('app').service('sharedInfraServiceA', function () {
-    var self = angular.extend(this, {
-        sharedInfraServiceAObj: {
+export default class SharedInfraServiceA {
+
+    constructor() {
+        this.sharedInfraServiceObj = {
             isSet: false
-        }
-    });
+        };
+    }
 
-    self.sharedInfraServiceAFunc = function () {
-        self.sharedInfraServiceAObj.isSet = true;
-    };
+    get objA () {
+        return this.sharedInfraServiceObj;
+    }
+}
 
-    return self;
-});
+angular.module('app').service('sharedInfraServiceA', SharedInfraServiceA);
