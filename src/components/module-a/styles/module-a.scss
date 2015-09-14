@@ -1,13 +1,14 @@
 @import '../../../shared/styles/variables';
+@import 'module-a-mixins';
 
 .module-a-class-1 {
-  color: #f00;
+  @include set-color($c-gray-light);
 }
 
 .module-a-class-2 {
-  color: #0f0;
+  @include set-color($c-gray-dark);
 }
 
 .module-a-class-3 {
-  color: #00f;
+  @include set-color($c-gray);
 }

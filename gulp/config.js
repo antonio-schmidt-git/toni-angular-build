@@ -7,6 +7,7 @@ function _config(args) {
         componentsFolder = 'components',
         viewsFolder = 'views',
         templatesFolder = 'templates',
+        stylesFolder = 'styles',
         subFolders = '/**/',
         htmlFiles = '*.html',
         jsFiles = '*.js',
@@ -43,6 +44,11 @@ function _config(args) {
 
     /* js build */
     config.notThirdPartyJsFiles = '!**/' + thirdPartyFiles + '.js';
+
+    /* css build */
+    config.cssIncludePaths = [
+        path.join('./', srcPath, sharedFolder, stylesFolder)];
+    config.cssPrefixBrowsers = ['last 2 versions', '> 1%'];
 
     console.log('');
     console.log('***   CONFIG BEGIN ***');

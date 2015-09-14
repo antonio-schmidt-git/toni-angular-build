@@ -4,13 +4,17 @@ var requireDir = require('require-dir'),
 
 function _jsPipe(config, plugins) {
     var es2015Pipe = jsPipes.es2015Pipe(plugins),
-        angularPipe = jsPipes.angularPipe(plugins);
+        angularPipe = jsPipes.angularPipe(plugins),
+        optimizationPipe = jsPipes.jsOptimizationPipe(plugins);
 
     return lazyPipe()
         .pipe(function () {
             return plugins.if(config.notThirdPartyJsFiles, es2015Pipe());
         })
-        .pipe(angularPipe);
+        .pipe(angularPipe)
+        .pipe(function () {
+            return plugins.if(config.optimize, optimizationPipe());
+        });
 }
 
 module.exports = _jsPipe;

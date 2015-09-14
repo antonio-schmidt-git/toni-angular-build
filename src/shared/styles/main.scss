@@ -1,13 +1,18 @@
-@import "variables";
+@import 'variables';
 
-.main-class-1 {
-  color: #f00;
-}
+.main-container {
+  .main-class-1 {
+    color: $c-gray;
+    transition: transform 1s;
+  }
 
-.main-class-2 {
-  color: #0f0;
-}
+  .main-class-2 {
+    color: $c-gray-light;
+    background: linear-gradient(to top, black, white);
+  }
 
-.main-class-3 {
-  color: #00f;
+  .main-class-3 {
+    color: $c-gray-dark;
+    display: flex;
+  }
 }

@@ -1,13 +1,13 @@
 @import '../../../shared/styles/variables';
 
 .module-b-class-1 {
-  color: #f00;
+  color: $c-gray-dark;
 }
 
 .module-b-class-2 {
-  color: #0f0;
+  color: $c-gray;
 }
 
 .module-b-class-3 {
-  color: #00f;
+  color: $c-gray-light;
 }

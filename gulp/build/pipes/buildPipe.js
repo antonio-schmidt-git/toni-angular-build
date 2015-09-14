@@ -1,6 +1,7 @@
 var requireDir = require('require-dir'),
     htmlPipes = requireDir('./html'),
-    jsPipes = requireDir('./js');
+    jsPipes = requireDir('./js'),
+    cssPipes = requireDir('./css');
 
 function _buildPipe(gulp, config, plugins) {
     var htmlFilter = plugins.filter(config.htmlFiles, {restore: true}),
@@ -8,7 +9,8 @@ function _buildPipe(gulp, config, plugins) {
         cssFilter = plugins.filter(config.cssFiles, {restore: true}),
         viewsWithAssetsPipe = htmlPipes.viewsWithAssetsPipe(gulp, config, plugins),
         htmlPipe = htmlPipes.htmlPipe(gulp, config, plugins),
-        jsPipe = jsPipes.jsPipe(config, plugins);
+        jsPipe = jsPipes.jsPipe(config, plugins),
+        cssPipe = cssPipes.cssPipe(config, plugins);
 
     // start build from view files with their assets
     return viewsWithAssetsPipe
@@ -20,6 +22,7 @@ function _buildPipe(gulp, config, plugins) {
 
         // process css
         .pipe(cssFilter)
+        .pipe(cssPipe())
         .pipe(cssFilter.restore)
 
         // process js
