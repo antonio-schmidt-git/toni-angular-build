@@ -8,7 +8,7 @@
     <option maxlen="500" />
     <option nomen="true" />
     <option plusplus="true" />
-    <option predef="angular, describe, beforeEach, afterEach, module, expect, it, inject, require, _, console" />
+    <option predef="angular, describe, beforeEach, afterEach, module, expect, it, inject, require, export, default, class, _, console, ArrayBuffer, DataView, Float32Array, Float64Array, Int8Array, Int16Array, Int32Array, Intl, Map, Promise, Proxy, Reflect, Set, Symbol, System, Uint8Array, Uint8ClampedArray, Uint16Array, Uint32Array, WeakMap, WeakSet" />
     <option regexp="true" />
     <option sloppy="true" />
     <option unparam="true" />

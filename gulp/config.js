@@ -4,6 +4,7 @@ function _config(args) {
     var config = {},
         srcPath = 'src',
         sharedFolder = 'shared',
+        packagesFolder = 'packages',
         componentsFolder = 'components',
         viewsFolder = 'views',
         templatesFolder = 'templates',
@@ -14,7 +15,7 @@ function _config(args) {
         cssFiles = '*.css',
         thirdPartyFiles = '*thirdparty*';
 
-    config.optimize = args.optimize;
+    config.optimize = args.prod || args.optimize;
     config.distPath = 'dist';
 
     /* build common */
@@ -49,6 +50,12 @@ function _config(args) {
     config.cssIncludePaths = [
         path.join('./', srcPath, sharedFolder, stylesFolder)];
     config.cssPrefixBrowsers = ['last 2 versions', '> 1%'];
+
+    /* source files */
+    config.jsSourceFiles = [
+        path.join('./', srcPath, subFolders, jsFiles),
+        '!' + path.join('./', srcPath, packagesFolder, subFolders, jsFiles)
+    ];
 
     console.log('');
     console.log('***   CONFIG BEGIN ***');

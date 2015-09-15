@@ -6,10 +6,12 @@ var gulp = require('gulp'),
 // INSTALL
 gulp.task('install', ['_install']);
 
-// INIT
+// DEV
 gulp.task('dev', ['_dev']);
+gulp.task('check', ['_check']);
 
-// BUILD
+
+// BUILD (--prod, --optimize)
 gulp.task('build', ['_re-build']);
 
 
@@ -17,3 +19,4 @@ gulp.task('build', ['_re-build']);
 require('./gulp/environment/install')(gulp, plugins);
 require('./gulp/build/tasks/re-build')(gulp, config, plugins);
 require('./gulp/dev/tasks/dev')(gulp, config, plugins);
+require('./gulp/dev/tasks/check')(gulp, config, plugins);
