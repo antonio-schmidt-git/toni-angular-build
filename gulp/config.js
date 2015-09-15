@@ -15,7 +15,9 @@ function _config(args) {
         cssFiles = '*.css',
         thirdPartyFiles = '*thirdparty*';
 
+    config.prod = args.prod;
     config.optimize = args.prod || args.optimize;
+    config.failOnJsQualityError = config.prod;
     config.distPath = 'dist';
 
     /* build common */
