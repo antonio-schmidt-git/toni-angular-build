@@ -53,7 +53,7 @@ function _config(args) {
     /* css build */
     config.cssIncludePaths = [
         path.join('./', srcPath, sharedFolder, stylesFolder)];
-    config.cssPrefixBrowsers = ['last 2 versions', '> 1%'];
+    config.cssPrefixBrowsers = ['last 2 version', 'safari 5', 'ie > 7', 'opera 12.1', 'ios 6', 'android 4', '> 1%'];
 
     /* source files */
     config.jsSourceFiles = [
