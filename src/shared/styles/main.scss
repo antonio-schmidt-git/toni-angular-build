@@ -1,5 +1,8 @@
 @import 'variables';
 
+$c-gradient-light: #fff;
+$c-gradient-dark: #000;
+
 .main-container {
   .main-class-1 {
     color: $c-gray;
@@ -7,8 +10,8 @@
   }
 
   .main-class-2 {
+    background: linear-gradient(to top, $c-gradient-dark, $c-gradient-light);
     color: $c-gray-light;
-    background: linear-gradient(to top, black, white);
   }
 
   .main-class-3 {

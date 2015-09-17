@@ -13,11 +13,13 @@ function _config(args) {
         htmlFiles = '*.html',
         jsFiles = '*.js',
         cssFiles = '*.css',
+        scssFiles = '*.scss',
         thirdPartyFiles = '*thirdparty*';
 
     config.prod = args.prod;
     config.optimize = args.prod || args.optimize;
     config.failOnJsQualityError = config.prod;
+    config.failOnCssQualityError = config.prod;
     config.distPath = 'dist';
 
     /* build common */
@@ -57,6 +59,11 @@ function _config(args) {
     config.jsSourceFiles = [
         path.join('./', srcPath, subFolders, jsFiles),
         '!' + path.join('./', srcPath, packagesFolder, subFolders, jsFiles)
+    ];
+    config.scssSourceFiles = [
+        path.join('./', srcPath, subFolders, scssFiles),
+        '!' + path.join('./', srcPath, packagesFolder, subFolders, scssFiles),
+        '!' + path.join('./', srcPath, sharedFolder, stylesFolder, 'bootstrap-custom.scss')
     ];
 
     console.log('');
