@@ -1,8 +1,12 @@
 var buildPipe = require('../pipes/buildPipe');
-require('../../dev/tasks/check');
+var check = require('../../dev/tasks/check');
+var assets = require('./assets');
 
 function _build(gulp, config, plugins) {
-    return gulp.task('_build', ['_check'], function () {
+    check(gulp, config, plugins);
+    assets(gulp, config, plugins);
+
+    return gulp.task('_build', ['_check', '_assets'], function () {
         return buildPipe(gulp, config, plugins);
     });
 }

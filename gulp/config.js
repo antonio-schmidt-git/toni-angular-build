@@ -14,7 +14,8 @@ function _config(args) {
         jsFiles = '*.js',
         cssFiles = '*.css',
         scssFiles = '*.scss',
-        thirdPartyFiles = '*thirdparty*';
+        thirdPartyFiles = '*thirdparty*',
+        assetsFolder = 'assets';
 
     config.prod = args.prod;
     config.optimize = args.prod || args.optimize;
@@ -65,6 +66,12 @@ function _config(args) {
         '!' + path.join('./', srcPath, packagesFolder, subFolders, scssFiles),
         '!' + path.join('./', srcPath, sharedFolder, stylesFolder, 'bootstrap-custom.scss')
     ];
+    config.fontSourceFiles = [
+        path.join(srcPath, packagesFolder, 'bootstrap-sass/assets/fonts/bootstrap/*.{eot,svg,ttf,woff,woff2}')
+    ];
+
+    /* fonts  */
+    config.fontsFolder = path.join(config.distPath, assetsFolder, 'fonts');
 
     console.log('');
     console.log('***   CONFIG BEGIN ***');
