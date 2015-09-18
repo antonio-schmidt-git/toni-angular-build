@@ -1,1 +1,0 @@
-angular.module('app.moduleB', ['app.modules']);
