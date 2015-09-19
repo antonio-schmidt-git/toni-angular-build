@@ -23,12 +23,12 @@ function _templateSourcePipe(gulp, config, plugins) {
 
 function _injectTransform(config) {
     return function (filePath, file, index, length, targetFile) {
-        var isSourceAndTargetShared = targetFile.path.match(config.sharedViewFilesRegexp)
-                && filePath.match(config.sharedTemplateFilesRegexp),
-            componentName = isSourceAndTargetShared ? '' : config.componentNameFromViewFile(targetFile.path),
-            isSourceAndTargetSameComponent = !isSourceAndTargetShared
-                && targetFile.path.match(config.componentViewFilesRegexp)
-                && filePath.match(config.componentsTemplateFilesRegexp(componentName));
+        var isSourceAndTargetShared = targetFile.path.match(config.sharedViewFilesRegexp) &&
+                filePath.match(config.sharedTemplateFilesRegexp),
+            componentName = isSourceAndTargetShared ? '' : config.componentNameFromSourceFile(targetFile.path),
+            isSourceAndTargetSameComponent = !isSourceAndTargetShared &&
+                targetFile.path.match(config.componentViewFilesRegexp) &&
+                filePath.match(config.componentsTemplateFilesRegexp(componentName));
 
         if (isSourceAndTargetShared || isSourceAndTargetSameComponent) {
             return file.contents.toString('utf8');

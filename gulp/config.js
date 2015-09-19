@@ -14,6 +14,7 @@ function _config(args) {
         jsFiles = '*.js',
         cssFiles = '*.css',
         scssFiles = '*.scss',
+        allSourceFiles = '*.*',
         thirdPartyFiles = '*thirdparty*',
         assetsFolder = 'assets';
 
@@ -24,6 +25,7 @@ function _config(args) {
     config.distPath = 'dist';
 
     /* build common */
+    config.componentsToBuild = '';
     config.htmlFiles = path.join('**/', htmlFiles);
     config.jsFiles = path.join('**/', jsFiles);
     config.cssFiles = path.join('**/', cssFiles);
@@ -39,13 +41,18 @@ function _config(args) {
     config.sharedViewFilesRegexp = /src\\shared\\views\\.*\.html/;
     config.sharedTemplateFilesRegexp = /src\/shared\/templates\/.*\.html/;
     config.componentViewFilesRegexp = /src\\components\\.*\\views\\.*\.html/;
-    config.componentsTemplateFilesRegexp = function (component) {
-        return new RegExp("src\\/components\\/##COMPONENT##\\/templates\\/.*\\.html".replace("##COMPONENT##", component));
+    config.componentsSourceFilesRegexp = function (component) {
+        var regexpString = 'src\\\\components\\\\##COMPONENT##\\\\.*'.replace('##COMPONENT##', component);
+        return new RegExp(regexpString);
     };
-    config.componentNameFromViewFile = function (viewFile) {
+    config.componentsTemplateFilesRegexp = function (component) {
+        return new RegExp('src\\/components\\/##COMPONENT##\\/templates\\/.*\\.html'.replace('##COMPONENT##', component));
+    };
+    config.componentNameFromSourceFile = function (viewFile) {
         return viewFile
+            .replace(/.*src\\shared/, '')
             .replace(/.*src\\components\\/, '')
-            .replace(/\\views.*/, '');
+            .replace(/\\(views|templates|scripts|styles|assets).*/, '');
     };
 
     /* js build */
@@ -57,6 +64,10 @@ function _config(args) {
     config.cssPrefixBrowsers = ['last 2 version', 'safari 5', 'ie > 7', 'opera 12.1', 'ios 6', 'android 4', '> 1%'];
 
     /* source files */
+    config.watchedSourceFiles = [
+        path.join('./', srcPath, subFolders, allSourceFiles),
+        '!' + path.join('./', srcPath, packagesFolder, subFolders, allSourceFiles)
+    ];
     config.jsSourceFiles = [
         path.join('./', srcPath, subFolders, jsFiles),
         '!' + path.join('./', srcPath, packagesFolder, subFolders, jsFiles)
@@ -74,9 +85,9 @@ function _config(args) {
     config.fontsFolder = path.join(config.distPath, assetsFolder, 'fonts');
 
     console.log('');
-    console.log('***   CONFIG BEGIN ***');
+    console.log('*** INITIAL CONFIG BEGIN ***');
     console.log(config);
-    console.log('***   CONFIG END ***');
+    console.log('*** INITIAL CONFIG END ***');
     console.log('');
 
     return config;

@@ -10,6 +10,7 @@ gulp.task('install', ['_install']);
 gulp.task('dev', ['_dev']);
 gulp.task('check', ['_check']);
 gulp.task('serve', ['_serve']);
+gulp.task('watch', ['_watch']);
 
 // BUILD (--prod, --optimize)
 gulp.task('build', ['_re-build']);
@@ -20,4 +21,5 @@ require('./gulp/environment/install')(gulp, plugins);
 require('./gulp/build/tasks/re-build')(gulp, config, plugins);
 require('./gulp/dev/tasks/dev')(gulp, config, plugins);
 require('./gulp/dev/tasks/check')(gulp, config, plugins);
+require('./gulp/dev/tasks/watch')(gulp, config, plugins);
 require('./gulp/dev/tasks/serve')(gulp, config, plugins);
