@@ -4,6 +4,7 @@ export default class MainController {
         this.navTitle = 'Toni angular build';
         this.sharedObjA = sharedDataServiceA.sharedDataServiceAObj;
         this.sharedObjB = sharedDataServiceB.sharedDataServiceBObj;
+        this.valueA = sharedDataServiceA.valueA(1);
         this.myArray = [
             { id: 0, name: 'zero' },
             { id: 1, name: 'one' },

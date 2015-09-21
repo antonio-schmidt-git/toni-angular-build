@@ -19,6 +19,7 @@
         <span>{{ main.getNavTitle() }}</span>
     </div>
     <div id="main" class="main-container">
+        <span>{{ main.valueA }}</span>
         <i class="glyphicon glyphicon-heart"></i>
         <span class="main-class-1">main-class-1</span>
         <span class="main-class-2">main-class-2</span>
@@ -41,6 +42,8 @@
 
     <!-- build:js scripts/bundle-shared.js -->
     <script type="text/javascript" src="../scripts/app.js"></script>
+    <script type="text/javascript" src="../scripts/infrastructure/api/api-routes.js"></script>
+    <script type="text/javascript" src="../scripts/infrastructure/api/api-caller.js"></script>
     <script type="text/javascript" src="../scripts/infrastructure/shared-infra-service-a.js"></script>
     <script type="text/javascript" src="../scripts/infrastructure/shared-infra-service-b.js"></script>
     <script type="text/javascript" src="../scripts/data/shared-data-service-a.js"></script>
