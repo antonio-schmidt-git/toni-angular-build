@@ -1,4 +1,6 @@
-var fontsPipe = require('../pipes/fonts/fontsPipe');
+var fontsPipe = require('../pipes/assets/fontsPipe');
+var imagesPipe = require('../pipes/assets/imagesPipe');
+var faviconPipe = require('../pipes/assets/faviconPipe');
 
 function _assets(gulp, config, plugins) {
 
@@ -6,7 +8,15 @@ function _assets(gulp, config, plugins) {
         return fontsPipe(gulp, config, plugins);
     });
 
-    return gulp.task('_assets', ['_fonts']);
+    gulp.task('_images', function(){
+        return imagesPipe(gulp, config, plugins);
+    });
+
+    gulp.task('_favicon', function(){
+        return faviconPipe(gulp, config);
+    });
+
+    return gulp.task('_assets', ['_fonts', '_images', '_favicon']);
 }
 
 module.exports = _assets;

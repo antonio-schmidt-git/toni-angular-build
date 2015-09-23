@@ -80,9 +80,14 @@ function _config(args) {
     config.fontSourceFiles = [
         path.join(srcPath, packagesFolder, 'bootstrap-sass/assets/fonts/bootstrap/*.{eot,svg,ttf,woff,woff2}')
     ];
+    config.imageSourceFiles = [
+        path.join(srcPath, sharedFolder, subFolders, '*.{png,jpg,jpeg,svg}')
+    ];
+    config.faviconPath = path.join(srcPath, sharedFolder, 'favicon.ico');
 
-    /* fonts  */
+    /* assets  */
     config.fontsFolder = path.join(config.distPath, assetsFolder, 'fonts');
+    config.imagesFolder = path.join(config.distPath, assetsFolder, 'images');
 
     console.log('');
     console.log('*** INITIAL CONFIG BEGIN ***');
