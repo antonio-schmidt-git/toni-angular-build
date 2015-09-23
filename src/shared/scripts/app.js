@@ -1,4 +1,7 @@
-angular.module('app.modules', ['ui.bootstrap']);
+angular.module('app.modules', [
+    'ui.bootstrap',
+    'ngMockE2E'
+]);
 
 // Register providers for lazy module loading
 function registerProviders(app) {
