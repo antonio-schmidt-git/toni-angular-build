@@ -1,11 +1,10 @@
-var requireDir = require('require-dir'),
-    jsPipes = requireDir(),
+var
     lazyPipe = require('lazypipe');
 
 function _jsPipe(config, plugins) {
-    var es2015Pipe = jsPipes.es2015Pipe(plugins),
-        angularPipe = jsPipes.angularPipe(plugins),
-        optimizationPipe = jsPipes.jsOptimizationPipe(plugins);
+    var es2015Pipe = require('./es-2015-pipe')(plugins),
+        angularPipe = require('./angular-pipe')(plugins),
+        optimizationPipe = require('./js-optimization-pipe')(plugins);
 
     return lazyPipe()
         .pipe(function () {

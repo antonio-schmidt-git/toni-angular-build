@@ -1,16 +1,11 @@
-var requireDir = require('require-dir'),
-    htmlPipes = requireDir('./html'),
-    jsPipes = requireDir('./js'),
-    cssPipes = requireDir('./css');
-
 function _buildPipe(gulp, config, plugins) {
     var htmlFilter = plugins.filter(config.htmlFiles, {restore: true}),
         jsFilter = plugins.filter(config.jsFiles, {restore: true}),
         cssFilter = plugins.filter(config.cssFiles, {restore: true}),
-        viewsWithAssetsPipe = htmlPipes.viewsWithAssetsPipe(gulp, config, plugins),
-        htmlPipe = htmlPipes.htmlPipe(gulp, config, plugins),
-        jsPipe = jsPipes.jsPipe(config, plugins),
-        cssPipe = cssPipes.cssPipe(config, plugins);
+        viewsWithAssetsPipe = require('./html/views-with-assets-pipe')(gulp, config, plugins),
+        htmlPipe = require('./html/html-pipe')(gulp, config, plugins),
+        jsPipe = require('./js/js-pipe')(config, plugins),
+        cssPipe = require('./css/css-pipe')(config, plugins);
 
     // start build from view files with their assets
     return viewsWithAssetsPipe

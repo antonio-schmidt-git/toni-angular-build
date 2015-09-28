@@ -1,4 +1,4 @@
-var buildPipe = require('../pipes/buildPipe');
+var buildPipe = require('../pipes/build-pipe');
 var check = require('../../dev/tasks/check');
 var assets = require('./assets');
 

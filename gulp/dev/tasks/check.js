@@ -1,5 +1,5 @@
-var jsQualityPipe = require('../pipes/jsQualityPipe'),
-    scssQualityPipe = require('../pipes/scssQualityPipe');
+var jsQualityPipe = require('../pipes/js-quality-pipe'),
+    scssQualityPipe = require('../pipes/scss-quality-pipe');
 
 function _check(gulp, config, plugins) {
     gulp.task('_checkJs', function () {

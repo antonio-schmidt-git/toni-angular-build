@@ -1,6 +1,6 @@
-var fontsPipe = require('../pipes/assets/fontsPipe');
-var imagesPipe = require('../pipes/assets/imagesPipe');
-var faviconPipe = require('../pipes/assets/faviconPipe');
+var fontsPipe = require('../pipes/assets/font-pipe');
+var imagesPipe = require('../pipes/assets/image-pipe');
+var faviconPipe = require('../pipes/assets/favicon-pipe');
 
 function _assets(gulp, config, plugins) {
 

@@ -1,4 +1,4 @@
-var imageOptimizationPipe = require('./imageOptimizationPipe');
+var imageOptimizationPipe = require('./image-optimization-pipe');
 
 function _imagesPipe(gulp, config, plugins) {
     var optimizationPipe = imageOptimizationPipe(plugins);

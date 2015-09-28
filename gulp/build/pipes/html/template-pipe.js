@@ -1,5 +1,5 @@
 var lazyPipe = require('lazypipe');
-var htmlOptimizationPipe = require('./htmlOptimizationPipe');
+var htmlOptimizationPipe = require('./html-optimization-pipe');
 
 function _transformTemplatePath(config) {
     return function (path) {
